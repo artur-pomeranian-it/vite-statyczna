@@ -10,7 +10,14 @@ export default function Dashboard() {
   return (
     <div>
       Welcome to dashboard!
-      <button onClick={handleLogout}>Logout</button>
+      <br />
+      <br />
+      <button
+        style={{ padding: '1rem', minWidth: '8rem' }}
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
     </div>
   );
 }
