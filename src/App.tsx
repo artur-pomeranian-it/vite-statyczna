@@ -11,6 +11,11 @@ export function name(params: string) {
 function App() {
   const [count, setCount] = useState(0);
 
+  let result = 0;
+  for (let index = 0; index < 10; index++) {
+    result += index;
+  }
+
   return (
     <>
       <div>
@@ -26,6 +31,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <p>Result is: {result}</p>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
