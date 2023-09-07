@@ -1,0 +1,17 @@
+.error-message {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.error-message h1 {
+    font-size: 2rem;
+    color: #ff5722; /* Red color */
+}
+
+.error-message p {
+    font-size: 1rem;
+    margin: 20px 0;
+}
