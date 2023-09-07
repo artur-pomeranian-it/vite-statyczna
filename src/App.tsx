@@ -3,18 +3,8 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
-// eslint-disable-next-line react-refresh/only-export-components
-export function name(params: string) {
-  console.log(params);
-}
-
 function App() {
   const [count, setCount] = useState(0);
-
-  let result = 0;
-  for (let index = 0; index < 10; index++) {
-    result += index;
-  }
 
   return (
     <>
@@ -31,7 +21,6 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>Result is: {result}</p>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
