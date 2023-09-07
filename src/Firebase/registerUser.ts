@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, User } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '.';
 
 type handleCreateUserResponse = (

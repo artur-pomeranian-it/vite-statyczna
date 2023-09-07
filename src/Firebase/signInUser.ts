@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword, User } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '.';
 
 type handleLoginUserResponse = (
