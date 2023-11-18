@@ -8,17 +8,16 @@ type handleLoginUserResponse = (
 
 export async function signInUser(
   email: string,
-  password: string,
-  callback: handleLoginUserResponse
-) {
+  password: string
+): Promise<[string | null, Error | null]> {
   try {
     const userCredential = await signInWithEmailAndPassword(
       auth,
       email,
       password
     );
-    callback(userCredential?.user?.email, null);
+    return [userCredential?.user?.email, null];
   } catch (error) {
-    callback(null, error instanceof Error ? error : Error(error as string));
+    return [null, error instanceof Error ? error : Error(error as string)];
   }
 }

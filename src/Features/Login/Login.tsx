@@ -5,28 +5,27 @@ import { useState } from 'react';
 import { useAppDispatch } from '../../Store/hooks';
 import { userLogin } from '../../Store/authSlice';
 import ErrorMessage from '../../Components/ErrorMessage/ErrorMessage';
+import { useFormInputs } from '../useFormInputs/useFormInputs';
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [inputs, handleInputChange] = useFormInputs();
   const [isError, setIsError] = useState(false);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (email && password && email.length > 0 && password.length > 6) {
-      signInUser(email, password, (userEmail, error) => {
-        console.log(error, userEmail);
-        if (error) setIsError(true);
-        if (userEmail) {
-          dispatch(userLogin(userEmail));
-          setIsError(false);
-          navigate('/dashboard');
-        }
-      });
-    }
+
+    // if (email && password && email.length > 0 && password.length > 6) {
+    //   const [userEmail, error] = await signInUser(email, password);
+    //   if (error) setIsError(true);
+    //   if (userEmail) {
+    //     dispatch(userLogin(userEmail));
+    //     setIsError(false);
+    //     navigate('/dashboard');
+    //   }
+    // }
   };
 
   return (
@@ -39,8 +38,7 @@ export default function Login() {
           placeholder="Username"
           autoComplete="off"
           required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleInputChange}
         />
         <input
           type="password"
@@ -48,8 +46,7 @@ export default function Login() {
           placeholder="Password"
           autoComplete="off"
           required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handleInputChange}
         />
         <input type="submit" value="Login" />
         <p>
